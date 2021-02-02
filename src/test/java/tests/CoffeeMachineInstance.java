@@ -3,7 +3,9 @@ package tests;
 import dunzo.entities.CoffeeMachine;
 import dunzo.entities.Ingredient;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +18,7 @@ import java.util.concurrent.Future;
 public class CoffeeMachineInstance {
 
 private CoffeeMachine coffeeMachine;
+
 
 @Before
 public void init(){
@@ -80,7 +83,9 @@ public void initializeBeverages(){
 }
 
 @Test
+
     public void orderingBeveragesOneByOne(){
+    System.out.println("\nExecuting test  for orderingBeveragesOneByOne\n\n");
 
     try{
 
@@ -128,6 +133,8 @@ public void initializeBeverages(){
 
 @Test
     public void orderingBeveragesSimultaneously(){
+
+    System.out.println("\nExecuting test for orderingBeveragesSimultaneously \n\n");
     ExecutorService executorService = Executors.newFixedThreadPool(3);
   Future task1 =  executorService.submit(()->{
         try{
